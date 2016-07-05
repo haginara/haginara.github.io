@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>LightSaber - suricata</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">LightSaber </a></h1>
+                <nav><ul>
+                    <li><a href="/category/07.html">07</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/posts/2016/07/suricata-ids-on-ubuntu-server/">Suricata IDS on Ubuntu Server</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-07-05T00:00:00-07:00">
+                Published: Tue 05 July 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haginara.html">haginara</a>
+        </address>
+<p>In <a href="/category/07.html">07</a>.</p>
+<p>tags: <a href="/tag/ubuntu.html">ubuntu</a> <a href="/tag/ids.html">ids</a> <a href="/tag/suricata.html">suricata</a> </p>
+</footer><!-- /.post-info --><h3>TOC</h3>
+<ol>
+<li>Suricata 설치하기</li>
+<li>Suricata 관리하기</li>
+<li>ELK 로 Suricata 로그 관리</li>
+</ol>
+<h3>Suricata 설치하기</h3>
+<h4>suricata repository 종류</h4>
+<ul>
+<li>Stable</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:oisf/suricata-stable
+sudo apt-get update &amp;&amp; sudo apt-get install suricata
+</pre></div>
+
+
+<ul>
+<li>Beta</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:oisf/suricata-beta
+sudo apt-get update &amp;&amp; sudo apt-get install suricata
+</pre></div>
+
+
+<ul>
+<li>Daily Release</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:oisf/suricata-daily
+sudo apt-get update &amp;&amp; sudo apt-get install suricata
+</pre></div>
+
+
+<h4>Interface card 설정 하기</h4>
+<p>Network interface file</p>
+<p><code>sudo vim /etc/network/interfaces</code></p>
+<p>아래 내용을 추가한다.</p>
+<div class="highlight"><pre><span></span><span class="x">auto eth1</span>
+<span class="x">iface eth1 inet manual</span>
+<span class="x">up ifconfig </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> 0.0.0.0 up</span>
+<span class="x">up ip link set </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> promisc on</span>
+<span class="x">down ip link set </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> promisc off</span>
+<span class="x">down ifconfig </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> down</span>
+</pre></div>
+
+
+<h4>로그 종류</h4>
+<ul>
+<li>eve.json</li>
+<li>fast.log</li>
+<li>http.log</li>
+<li>stats.log</li>
+<li>unified2.alert.1437460553</li>
+</ul>
+<h3>Suricata 관리하기</h3>
+<h4>oinkmaster</h4>
+<h4>pulledpork</h4>
+<h4>py-idstools</h4>
+<p>Sample Command</p>
+<div class="highlight"><pre><span></span>sudo idstools-rulecat --rules-dir /etc/suricata/rules/ --sid-msg-map /etc/suricata/rules/sid-msg.map --disable disable.conf --post-hook <span class="s2">&quot;/etc/init.d/suricata restart&quot;</span>
+</pre></div>
+
+
+<h5>인자 설명</h5>
+<ul>
+<li>rules-dir : 룰 폴더의 경로</li>
+<li>sid-msg-map: sid-msg.map 파일의 경로</li>
+<li>disable: 사용하지 않을 룰의 sid를 가지고 있는 파일  </li>
+<li>disable 파일의 경우 <strong>룰번호/n</strong> 형태로 파일을 작성 할 수 있다.</li>
+<li>post-hook: 룰이 변경됬을 경우 실행할 명렁</li>
+</ul>
+<p>해당 명령은 <strong>cronjob</strong>에 추가 할수 있다.</p>
+<div class="highlight"><pre><span></span>sudo vim /etc/cron.hourly/rulecat.hourly
+### Adding the command to rulecat.houly file
+#!/bin/bash
+
+/usr/local/bin/idstools-rulecat  --rules-dir /etc/suricata/rules/ --sid-msg-map /etc/suricata/rules/sid-msg.map --disable disable.conf --post-hook &quot;/etc/init.d/suricata restart&quot;
+
+### Adding the execution permission to this file
+sudo chmod 755 /etc/cron.hourly/rulecat.hourly
+</pre></div>
+
+
+<p>Result</p>
+<div class="highlight"><pre><span></span>Last download less than <span class="m">15</span> minutes ago. Not fetching.
+Loaded <span class="m">21320</span> rules.
+Disabled <span class="m">48</span> rules.
+Enabled <span class="m">0</span> rules.
+Modified <span class="m">0</span> rules.
+Enabled <span class="m">86</span> rules <span class="k">for</span> flowbit dependencies.
+Writing rule files to /etc/suricata/rules/.
+Writing /etc/suricata/rules/sid-msg.map.
+Running post-hook as output has been modified.
+Running /etc/init.d/suricata restart.
+Stopping suricata:  <span class="k">done</span>.
+Starting suricata in IDS <span class="o">(</span>af-packet<span class="o">)</span> mode... <span class="k">done</span>.
+Done.
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
