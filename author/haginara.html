@@ -21,7 +21,40 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/posts/2016/07/test-page/">Test Page</a></h1>
+                    <h1 class="entry-title"><a href="/posts/2016/07/install-asus-pce--n53-driver-for-ubuntu-14.04/">Install Asus PCE-N53 Driver for Ubuntu 14.04</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-07-05T00:00:00-07:00">
+                Published: Tue 05 July 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haginara.html">haginara</a>
+        </address>
+<p>In <a href="/category/07.html">07</a>.</p>
+<p>tags: <a href="/tag/ubuntu.html">ubuntu</a> <a href="/tag/pce-n53.html">pce-n53</a> <a href="/tag/asus.html">asus</a> <a href="/tag/wlan.html">wlan</a> </p>
+</footer><!-- /.post-info --><p>When I bought the asus wireless NIC, My dekstop was using the Windows.
+but recently I changed to Ubuntu 14.04 Dekstop. The hell of the WIRELESS was started from that time.</p>
+<p>The driver which provided by Asus is not supported to Kernel 3.x version. I found the patched version from the github.com</p>
+<ul>
+<li><a href="https://github.com/unused/patched-Asus-PCE-N53-linux-driver" title="https://github.com/unused/patched-Asus-PCE-N53-linux-driver">https://github.com/unused/patched-Asus-PCE-N53-linux-driver</a></li>
+</ul>
+<p>Download the files, and run command.</p>
+<p><code>sudo make &amp;&amp; sudo make instal</code></p>
+<p>This commands are only accepted to current session. After reboot the computer, you will have to enabled the driver again.</p>
+<p>Add the <strong>ifconfig ra0 up</strong> to the <strong>/etc/rc.local</strong> and add <strong>rt5592sta</strong> to the <strong>/etc/modules</strong></p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/posts/2016/07/test-page/" rel="bookmark"
+                           title="Permalink to Test Page">Test Page</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-07-01T14:38:00-07:00">
                 Published: Fri 01 July 2016
@@ -32,12 +65,10 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>.</p>
 <p>tags: <a href="/tag/python.html">python</a> </p>
-</footer><!-- /.post-info --><p>Test Page for Pelican</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Test page</p>
+                <a class="readmore" href="/posts/2016/07/test-page/">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
