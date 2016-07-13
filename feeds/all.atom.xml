@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>LightSaber</title><link href="http://haginara.github.io/" rel="alternate"></link><link href="http://haginara.github.io/feeds/all.atom.xml" rel="self"></link><id>http://haginara.github.io/</id><updated>2016-07-05T00:00:00-07:00</updated><entry><title>Install Asus PCE-N53 Driver for Ubuntu 14.04</title><link href="http://haginara.github.io/posts/2016/07/install-asus-pce--n53-driver-for-ubuntu-14.04/" rel="alternate"></link><published>2016-07-05T00:00:00-07:00</published><author><name>haginara</name></author><id>tag:haginara.github.io,2016-07-05:posts/2016/07/install-asus-pce--n53-driver-for-ubuntu-14.04/</id><summary type="html">&lt;p&gt;When I bought the asus wireless NIC, My dekstop was using the Windows.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>LightSaber</title><link href="http://haginara.github.io/" rel="alternate"></link><link href="http://haginara.github.io/feeds/all.atom.xml" rel="self"></link><id>http://haginara.github.io/</id><updated>2016-07-06T12:09:00-07:00</updated><entry><title>How to make a Simple .deb file</title><link href="http://haginara.github.io/posts/2016/07/how-to-make-a-simple-deb-file/" rel="alternate"></link><published>2016-07-06T12:09:00-07:00</published><author><name>haginara</name></author><id>tag:haginara.github.io,2016-07-06:posts/2016/07/how-to-make-a-simple-deb-file/</id><summary type="html">&lt;h4&gt;References&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;http://packaging.ubuntu.com/html/packaging-new-software.html&lt;/li&gt;
+&lt;li&gt;http://packaging.ubuntu.com/html/debian-dir-overview.html&lt;/li&gt;
+&lt;li&gt;http://tldp.org/HOWTO/html_single/Debian-Binary-Package-Building-HOWTO/#AEN66&lt;/li&gt;
+&lt;li&gt;https://raphaelhertzog.com/2010/12/17/do-not-build-a-debian-package-with-dpkg-b/&lt;/li&gt;
+&lt;li&gt;https://raphaelhertzog.com/debian-packaging/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Standard debian notation is all lowercase in the following format&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;project&amp;gt;_&amp;lt;major_version&amp;gt;.&amp;lt;minor_version&amp;gt;-&amp;lt;package revision&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;p&gt;helloworld_1.0-1&lt;/p&gt;
+&lt;h4&gt;Step by Step&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;create a directory to make my package in. the name should be same as the package name
+&lt;code&gt;mkdir helloword_1.0-1&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pretend that the packaging directory is actually that root of the file system. Put the files of your program where they would be installed to on a system.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;mkdir helloworld_1.0-1/user
+mkdir helloworld_1.0-1/user/local
+mkdir helloworld_1.0-1/user/local/bin
+cp &amp;quot;~/Projects/Hello World/helloworld&amp;quot; helloworld_1.0-1/usr/local/bin
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;Create a special metadata file with which the package manager will install your program&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;mkdir helloword_1.0-1/DEBIAN
+touch helloword_1.0-1/DEBIAN/control
+Put something like this in that file
+Package: helloworld
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: i386
+Depends: libsomethingorrather (&amp;gt;= 1.2.13), anotherDependency (&amp;gt;= 1.2.6)
+Maintainer: Your Name &amp;lt;you@email.com&amp;gt;
+Description: Hello World
+ When you need some sunshine, just run this
+ small program!
+
+ (the space before each line in the description is important)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;You just need to make the package&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;dpkg-deb --build helloworld_1.0-1
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="deb"></category><category term="ubuntu"></category></entry><entry><title>Install Asus PCE-N53 Driver for Ubuntu 14.04</title><link href="http://haginara.github.io/posts/2016/07/install-asus-pce--n53-driver-for-ubuntu-14.04/" rel="alternate"></link><published>2016-07-05T00:00:00-07:00</published><author><name>haginara</name></author><id>tag:haginara.github.io,2016-07-05:posts/2016/07/install-asus-pce--n53-driver-for-ubuntu-14.04/</id><summary type="html">&lt;p&gt;When I bought the asus wireless NIC, My dekstop was using the Windows.
 but recently I changed to Ubuntu 14.04 Dekstop. The hell of the WIRELESS was started from that time.&lt;/p&gt;
 &lt;p&gt;The driver which provided by Asus is not supported to Kernel 3.x version. I found the patched version from the github.com&lt;/p&gt;
 &lt;ul&gt;
@@ -19,24 +73,24 @@ but recently I changed to Ubuntu 14.04 Dekstop. The hell of the WIRELESS was sta
 &lt;ul&gt;
 &lt;li&gt;Stable&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;ppa&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;oisf&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;suricata&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;stable&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;suricata&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo add-apt-repository ppa:oisf/suricata-stable
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install suricata
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Beta&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;ppa&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;oisf&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;suricata&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;beta&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;suricata&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo add-apt-repository ppa:oisf/suricata-beta
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install suricata
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Daily Release&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;ppa&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;oisf&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;suricata&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;daily&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;suricata&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo add-apt-repository ppa:oisf/suricata-daily
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install suricata
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -44,12 +98,12 @@ but recently I changed to Ubuntu 14.04 Dekstop. The hell of the WIRELESS was sta
 &lt;p&gt;Network interface file&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sudo vim /etc/network/interfaces&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;아래 내용을 추가한다.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth1&lt;/span&gt;
-&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth1&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="n"&gt;manual&lt;/span&gt;
-&lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;ifconfig&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt; &lt;span class="mf"&gt;0.0.0.0&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt;
-&lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt; &lt;span class="n"&gt;promisc&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
-&lt;span class="n"&gt;down&lt;/span&gt; &lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt; &lt;span class="n"&gt;promisc&lt;/span&gt; &lt;span class="n"&gt;off&lt;/span&gt;
-&lt;span class="n"&gt;down&lt;/span&gt; &lt;span class="n"&gt;ifconfig&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;IFACE&lt;/span&gt; &lt;span class="n"&gt;down&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;auto eth1&lt;/span&gt;
+&lt;span class="x"&gt;iface eth1 inet manual&lt;/span&gt;
+&lt;span class="x"&gt;up ifconfig &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;IFACE&lt;/span&gt;&lt;span class="x"&gt; 0.0.0.0 up&lt;/span&gt;
+&lt;span class="x"&gt;up ip link set &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;IFACE&lt;/span&gt;&lt;span class="x"&gt; promisc on&lt;/span&gt;
+&lt;span class="x"&gt;down ip link set &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;IFACE&lt;/span&gt;&lt;span class="x"&gt; promisc off&lt;/span&gt;
+&lt;span class="x"&gt;down ifconfig &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;IFACE&lt;/span&gt;&lt;span class="x"&gt; down&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -79,24 +133,24 @@ but recently I changed to Ubuntu 14.04 Dekstop. The hell of the WIRELESS was sta
 &lt;li&gt;post-hook: 룰이 변경됬을 경우 실행할 명렁&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;해당 명령은 &lt;strong&gt;cronjob&lt;/strong&gt;에 추가 할수 있다.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cron&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hourly&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rulecat&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hourly&lt;/span&gt;
-&lt;span class="cp"&gt;### Adding the command to rulecat.houly file&lt;/span&gt;
-&lt;span class="cp"&gt;#!/bin/bash&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo vim /etc/cron.hourly/rulecat.hourly
+### Adding the command to rulecat.houly file
+#!/bin/bash
 
-&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;idstools&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rulecat&lt;/span&gt;  &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;rules&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dir&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;suricata&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;sid&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;suricata&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sid&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;disable&lt;/span&gt; &lt;span class="n"&gt;disable&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;hook&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/etc/init.d/suricata restart&amp;quot;&lt;/span&gt;
+/usr/local/bin/idstools-rulecat  --rules-dir /etc/suricata/rules/ --sid-msg-map /etc/suricata/rules/sid-msg.map --disable disable.conf --post-hook &amp;quot;/etc/init.d/suricata restart&amp;quot;
 
-&lt;span class="cp"&gt;### Adding the execution permission to this file&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="mi"&gt;755&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cron&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hourly&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rulecat&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hourly&lt;/span&gt;
+### Adding the execution permission to this file
+sudo chmod 755 /etc/cron.hourly/rulecat.hourly
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Result&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Last download less than 15 minutes ago. Not fetching.
-Loaded 21320 rules.
-Disabled 48 rules.
-Enabled 0 rules.
-Modified 0 rules.
-Enabled 86 rules &lt;span class="k"&gt;for &lt;/span&gt;flowbit dependencies.
+&lt;div class="highlight"&gt;&lt;pre&gt;Last download less than &lt;span class="m"&gt;15&lt;/span&gt; minutes ago. Not fetching.
+Loaded &lt;span class="m"&gt;21320&lt;/span&gt; rules.
+Disabled &lt;span class="m"&gt;48&lt;/span&gt; rules.
+Enabled &lt;span class="m"&gt;0&lt;/span&gt; rules.
+Modified &lt;span class="m"&gt;0&lt;/span&gt; rules.
+Enabled &lt;span class="m"&gt;86&lt;/span&gt; rules &lt;span class="k"&gt;for&lt;/span&gt; flowbit dependencies.
 Writing rule files to /etc/suricata/rules/.
 Writing /etc/suricata/rules/sid-msg.map.
 Running post-hook as output has been modified.
@@ -114,34 +168,34 @@ Done.
 &lt;h2&gt;Client 다운로드&lt;/h2&gt;
 &lt;p&gt;인증서를 얻기 위하여 별도의 letsencyrpt 클라이언트 프로그램을 다운 받아야 한다. 
 해당 클라이언트는 웹서비스를 하고 있는 대상 서버에 다운을 받는다.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/letsencrypt/letsencrypt&lt;/span&gt;
-&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;letsencrypt&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cd /opt
+git clone https://github.com/letsencrypt/letsencrypt
+cd letsencrypt
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;사용하고 있는 웹서비스 종료 후 인증서 받기&lt;/h2&gt;
 &lt;p&gt;인증서를 받기 위하여 자체적으로 혹은 기존 사용하고 있는 웹서비스를 이용하여 인증서를 받는다.
 여기서는 기존 서비스를 이용하지않고 클라이언트에서 자체 지원하는 standalone 방식으로 인증서를 받을 예정이다.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;nginx&lt;/span&gt; &lt;span class="n"&gt;stop&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo service nginx stop
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;letsencrypt-auto 이용하여 인증서 얻기&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;certonly&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;standalone&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;cloud&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;wiki&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;kanban&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt; 
+&lt;div class="highlight"&gt;&lt;pre&gt;./letsencrypt-auto certonly --standalone -d www.haginara.net -d cloud.haginara.net -d blog.haginara.net -d wiki.haginara.net -d kanban.haginara.net -d git.haginara.net 
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;인증서를 받은 후에는 아래와 같은 축하 메시지를 받게 된다.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;IMPORTANT&lt;/span&gt; &lt;span class="n"&gt;NOTES&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
- &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Congratulations&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="n"&gt;Your&lt;/span&gt; &lt;span class="n"&gt;certificate&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;chain&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;been&lt;/span&gt; &lt;span class="n"&gt;saved&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt;
-   &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;live&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fullchain&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Your&lt;/span&gt; &lt;span class="n"&gt;cert&lt;/span&gt;
-   &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;expire&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;02.&lt;/span&gt; &lt;span class="n"&gt;To&lt;/span&gt; &lt;span class="n"&gt;obtain&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;
-   &lt;span class="n"&gt;certificate&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;future&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;simply&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="n"&gt;Let&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;Encrypt&lt;/span&gt; &lt;span class="n"&gt;again&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
- &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;like&lt;/span&gt; &lt;span class="n"&gt;Let&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;Encrypt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;please&lt;/span&gt; &lt;span class="n"&gt;consider&lt;/span&gt; &lt;span class="n"&gt;supporting&lt;/span&gt; &lt;span class="n"&gt;our&lt;/span&gt; &lt;span class="n"&gt;work&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at
+   /etc/letsencrypt/live/www.haginara.net/fullchain.pem. Your cert
+   will expire on 2016-03-02. To obtain a new version of the
+   certificate in the future, simply run Let&amp;#39;s Encrypt again.
+ - If like Let&amp;#39;s Encrypt, please consider supporting our work by:
 
-   &lt;span class="n"&gt;Donating&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;ISRG&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;Let&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;Encrypt&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//letsencrypt.org/donate&lt;/span&gt;
-   &lt;span class="n"&gt;Donating&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;EFF&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;                    &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//eff.org/donate-le&lt;/span&gt;
+   Donating to ISRG / Let&amp;#39;s Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -149,24 +203,24 @@ Done.
 &lt;h2&gt;설정 파일 사용하여 인증서 얻기&lt;/h2&gt;
 &lt;p&gt;위와 같이 파라미터를 이용하여 인증서를 받을수도 있지만 별도의 설장파일을 만들어 두고 사용 하여도된다.&lt;/p&gt;
 &lt;p&gt;cli.ini&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;rsa&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt;
-&lt;span class="n"&gt;domains&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;wiki&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cloud&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;
-&lt;span class="n"&gt;authenticator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;standalone&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;rsa-key-size = 4096
+domains = www.haginara.net, blog.haginara.net, wiki.haginara.net, git.haginara.net, git.haginara.net, cloud.haginara.net
+authenticator = standalone
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;certonly&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="n"&gt;cli&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ini&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;./letsencrypt-auto certonly --config cli.ini
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;Nginx 서비스에 인증서 적용&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ssl_certificate&lt;/span&gt;     &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;live&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fullchain&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt;
-&lt;span class="n"&gt;ssl_certificate_ke&lt;/span&gt;  &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;live&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;haginara&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;privkey&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ssl_certificate     /etc/letsencrypt/live/www.haginara.net/fullchain.pem
+ssl_certificate_ke  /etc/letsencrypt/live/www.haginara.net/privkey.pem
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;기존 웹서비스 실행&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;nginx&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo service nginx start
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -192,10 +246,10 @@ Done.
 
 service nginx stop
 sleep 2
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; -f &lt;span class="nv"&gt;$NGINX_PID&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
-&lt;span class="k"&gt;    &lt;/span&gt;service nginx restart
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; -f &lt;span class="nv"&gt;$NGINX_PID&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+    service nginx restart
 &lt;span class="k"&gt;else&lt;/span&gt;
-&lt;span class="k"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /opt/letsencrypt
+    &lt;span class="nb"&gt;cd&lt;/span&gt; /opt/letsencrypt
     ./letsencrypt-auto certonly --config &lt;span class="nv"&gt;$INI_PATH&lt;/span&gt;
     service nginx start
 &lt;span class="k"&gt;fi&lt;/span&gt;
@@ -207,10 +261,10 @@ sleep 2
 &lt;p&gt;Let's Encrypt 인증서의 경우 만료기간이 90일이다. 따라서 매 90일 마다 인증서 갱신을 해주어야 한다.&lt;/p&gt;
 &lt;p&gt;인증서 갱신은 기존 인증서를 새로 발급 받는 절차와 동일하다 단지 이 작업을 90일마다(인증서 만료전) 실행 해 주기위하여 Cronjob으로 설정할 에정이다.&lt;/p&gt;
 &lt;h2&gt;Cron-job&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;crontab&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo crontab -e
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;아래와 같이 크론잡을 설정 해준다.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="mo"&gt;01&lt;/span&gt; &lt;span class="err"&gt;*/&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cron&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;30 03 01 */3 * /opt/letsencrypt/letsencrypt-cron
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="letsencrypt"></category><category term="nginx"></category></entry><entry><title>Welcome</title><link href="http://haginara.github.io/posts/2016/07/welcome/" rel="alternate"></link><published>2016-07-01T00:00:00-07:00</published><author><name>haginara</name></author><id>tag:haginara.github.io,2016-07-01:posts/2016/07/welcome/</id><summary type="html">&lt;p&gt;This is the welcome page for haginara.github.io&lt;/p&gt;</summary><category term="Pelican"></category><category term="publishing"></category></entry></feed>
