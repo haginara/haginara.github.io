@@ -21,7 +21,51 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://haginara.github.io/posts/2016/07/how-to-make-a-simple-deb-file/">How to make a Simple .deb file</a></h1>
+                    <h1 class="entry-title"><a href="http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/">Removing the BOM characters using python</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-07-21T16:03:00-07:00">
+                Published: Thu 21 July 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://haginara.github.io/author/haginara.html">haginara</a>
+        </address>
+<p>In <a href="http://haginara.github.io/category/07.html">07</a>.</p>
+<p>tags: <a href="http://haginara.github.io/tag/python.html">python</a> <a href="http://haginara.github.io/tag/utf8.html">utf8</a> </p>
+</footer><!-- /.post-info --><p>I exported the one of the csv file I wan to get some information using csvkit.
+but csvkit return the error like below:</p>
+<div class="highlight"><pre>&#39;cp949&#39; codec can&#39;t encode character u&#39;\ufeff&#39; in position 5: illegal multibyte sequence
+</pre></div>
+
+
+<p>BOM(https://en.wikipedia.org/wiki/Byte_order_mark) characters in the exported files. and I wrote the script to remove the BOM characters</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">codecs</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">.new&quot;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">new</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">new</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">codecs</span><span class="o">.</span><span class="n">BOM_UTF8</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span> <span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">.bak&quot;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">.new&quot;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div><p>There are <a href="http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://haginara.github.io/posts/2016/07/how-to-make-a-simple-deb-file/" rel="bookmark"
+                           title="Permalink to How to make a Simple .deb file">How to make a Simple .deb file</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-07-06T12:09:00-07:00">
                 Published: Wed 06 July 2016
@@ -32,66 +76,10 @@
         </address>
 <p>In <a href="http://haginara.github.io/category/07.html">07</a>.</p>
 <p>tags: <a href="http://haginara.github.io/tag/deb.html">deb</a> <a href="http://haginara.github.io/tag/ubuntu.html">ubuntu</a> </p>
-</footer><!-- /.post-info --><h4>References</h4>
-<ul>
-<li>http://packaging.ubuntu.com/html/packaging-new-software.html</li>
-<li>http://packaging.ubuntu.com/html/debian-dir-overview.html</li>
-<li>http://tldp.org/HOWTO/html_single/Debian-Binary-Package-Building-HOWTO/#AEN66</li>
-<li>https://raphaelhertzog.com/2010/12/17/do-not-build-a-debian-package-with-dpkg-b/</li>
-<li>https://raphaelhertzog.com/debian-packaging/</li>
-</ul>
-<p>Standard debian notation is all lowercase in the following format</p>
-<p><code>&lt;project&gt;_&lt;major_version&gt;.&lt;minor_version&gt;-&lt;package revision&gt;</code></p>
-<p>Example:</p>
-<p>helloworld_1.0-1</p>
-<h4>Step by Step</h4>
-<ol>
-<li>
-<p>create a directory to make my package in. the name should be same as the package name
-<code>mkdir helloword_1.0-1</code></p>
-</li>
-<li>
-<p>Pretend that the packaging directory is actually that root of the file system. Put the files of your program where they would be installed to on a system.</p>
-</li>
-</ol>
-<div class="highlight"><pre>mkdir helloworld_1.0-1/user
-mkdir helloworld_1.0-1/user/local
-mkdir helloworld_1.0-1/user/local/bin
-cp &quot;~/Projects/Hello World/helloworld&quot; helloworld_1.0-1/usr/local/bin
-</pre></div>
-
-
-<ol>
-<li>Create a special metadata file with which the package manager will install your program</li>
-</ol>
-<div class="highlight"><pre>mkdir helloword_1.0-1/DEBIAN
-touch helloword_1.0-1/DEBIAN/control
-Put something like this in that file
-Package: helloworld
-Version: 1.0-1
-Section: base
-Priority: optional
-Architecture: i386
-Depends: libsomethingorrather (&gt;= 1.2.13), anotherDependency (&gt;= 1.2.6)
-Maintainer: Your Name &lt;you@email.com&gt;
-Description: Hello World
- When you need some sunshine, just run this
- small program!
-
- (the space before each line in the description is important)
-</pre></div>
-
-
-<ol>
-<li>You just need to make the package</li>
-</ol>
-<div class="highlight"><pre>dpkg-deb --build helloworld_1.0-1
-</pre></div><p>There are <a href="http://haginara.github.io/posts/2016/07/how-to-make-a-simple-deb-file/#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>How to make a Simple .deb file</p>
+                <a class="readmore" href="http://haginara.github.io/posts/2016/07/how-to-make-a-simple-deb-file/">read more</a>
+<p>There are <a href="http://haginara.github.io/posts/2016/07/how-to-make-a-simple-deb-file/#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -158,29 +146,11 @@ Description: Hello World
                 <a class="readmore" href="http://haginara.github.io/posts/2016/07/using-the-lets-encrypt-for-nginx/">read more</a>
 <p>There are <a href="http://haginara.github.io/posts/2016/07/using-the-lets-encrypt-for-nginx/#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://haginara.github.io/posts/2016/07/welcome/" rel="bookmark"
-                           title="Permalink to Welcome">Welcome</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-07-01T00:00:00-07:00">
-                Published: Fri 01 July 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="http://haginara.github.io/author/haginara.html">haginara</a>
-        </address>
-<p>In <a href="http://haginara.github.io/category/07.html">07</a>.</p>
-<p>tags: <a href="http://haginara.github.io/tag/pelican.html">Pelican</a> <a href="http://haginara.github.io/tag/publishing.html">publishing</a> </p>
-</footer><!-- /.post-info -->                <p>Welcome Page</p>
-                <a class="readmore" href="http://haginara.github.io/posts/2016/07/welcome/">read more</a>
-<p>There are <a href="http://haginara.github.io/posts/2016/07/welcome/#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
                 </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 2
+        <a href="http://haginara.github.io/author/haginara2.html">&raquo;</a>
+</p>
                 </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
