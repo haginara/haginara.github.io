@@ -16,12 +16,67 @@
                 <h1><a href="http://haginara.github.io/">LightSaber </a></h1>
                 <nav><ul>
                     <li><a href="http://haginara.github.io/category/07.html">07</a></li>
+                    <li><a href="http://haginara.github.io/category/08.html">08</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/">Removing the BOM characters using python</a></h1>
+                    <h1 class="entry-title"><a href="http://haginara.github.io/posts/2016/08/python-ldap-on-os-x/">Python-ldap on OS X</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-08-04T00:00:00-07:00">
+                Published: Thu 04 August 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://haginara.github.io/author/haginara.html">haginara</a>
+        </address>
+<p>In <a href="http://haginara.github.io/category/08.html">08</a>.</p>
+<p>tags: <a href="http://haginara.github.io/tag/osx.html">osx</a> <a href="http://haginara.github.io/tag/ldap.html">ldap</a> <a href="http://haginara.github.io/tag/python.html">python</a> </p>
+</footer><!-- /.post-info --><p>python-ldap is supporting the Python2 and Python3. But I never tried to install on OS X.</p>
+<p>I got error message, when I try to install the python-ldap via pip</p>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">ldap</span>
+<span class="p">...</span>
+<span class="n">Modules</span><span class="o">/</span><span class="n">LDAPObject</span><span class="p">.</span><span class="n">c</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mi">10</span><span class="o">:</span> <span class="n">fatal</span> <span class="n">error</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">sasl</span><span class="p">.</span><span class="n">h</span><span class="err">&#39;</span> <span class="n">file</span> <span class="n">not</span> <span class="n">found</span>
+<span class="cp">#include &lt;sasl.h&gt;</span>
+         <span class="o">^</span>
+<span class="mi">1</span> <span class="n">error</span> <span class="n">generated</span><span class="p">.</span>
+<span class="nl">error:</span> <span class="n">command</span> <span class="err">&#39;</span><span class="n">cc</span><span class="err">&#39;</span> <span class="n">failed</span> <span class="n">with</span> <span class="n">exit</span> <span class="n">status</span> <span class="mi">1</span>
+</pre></div>
+
+
+<p>The official python-ldap site(https://www.python-ldap.org/download.html) is having the guide to install on OS X</p>
+<div class="highlight"><pre><span class="n">Set</span> <span class="n">up</span> <span class="n">a</span> <span class="n">suitable</span> <span class="n">development</span> <span class="n">environment</span> <span class="n">by</span> <span class="n">running</span> <span class="n">xcode</span><span class="o">-</span><span class="n">select</span> <span class="o">--</span><span class="n">install</span><span class="p">.</span> <span class="n">After</span> <span class="n">that</span> <span class="n">you</span> <span class="n">can</span> <span class="n">install</span> <span class="n">directly</span> <span class="n">from</span> <span class="n">PyPI</span><span class="p">.</span>
+</pre></div>
+
+
+<p>xcode-select  --install
+xcode-select: note: install requested for command line developer tools
+sudo pip install python-ldap
+Password:
+Collecting python-ldap
+  Downloading python-ldap-2.4.27.tar.gz (125kB)
+    100% |████████████████████████████████| 133kB 175kB/s
+Requirement already satisfied (use --upgrade to upgrade): setuptools in /Library/Python/2.7/site-packages (from python-ldap)
+Installing collected packages: python-ldap
+  Running setup.py install for python-ldap ... done
+Successfully installed python-ldap-2.4.27
+python -c "import ldap; print(ldap)"
+<module 'ldap' from '/Library/Python/2.7/site-packages/ldap/__init__.pyc'>
+```</p><p>There are <a href="http://haginara.github.io/posts/2016/08/python-ldap-on-os-x/#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/" rel="bookmark"
+                           title="Permalink to Removing the BOM characters using python">Removing the BOM characters using python</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-07-21T16:03:00-07:00">
                 Published: Thu 21 July 2016
@@ -32,32 +87,10 @@
         </address>
 <p>In <a href="http://haginara.github.io/category/07.html">07</a>.</p>
 <p>tags: <a href="http://haginara.github.io/tag/python.html">python</a> <a href="http://haginara.github.io/tag/utf8.html">utf8</a> </p>
-</footer><!-- /.post-info --><p>I exported the one of the csv file I wan to get some information using csvkit.
-but csvkit return the error like below:</p>
-<div class="highlight"><pre>&#39;cp949&#39; codec can&#39;t encode character u&#39;\ufeff&#39; in position 5: illegal multibyte sequence
-</pre></div>
-
-
-<p>BOM(https://en.wikipedia.org/wiki/Byte_order_mark) characters in the exported files. and I wrote the script to remove the BOM characters</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">codecs</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">.new&quot;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">new</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">new</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">codecs</span><span class="o">.</span><span class="n">BOM_UTF8</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span> <span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">.bak&quot;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
-    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">.new&quot;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</pre></div><p>There are <a href="http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Removing the BOM characters using python</p>
+                <a class="readmore" href="http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/">read more</a>
+<p>There are <a href="http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -123,28 +156,6 @@ but csvkit return the error like below:</p>
 </footer><!-- /.post-info -->                <p>how to install the suricata on Ubuntu server</p>
                 <a class="readmore" href="http://haginara.github.io/posts/2016/07/suricata-ids-on-ubuntu-server/">read more</a>
 <p>There are <a href="http://haginara.github.io/posts/2016/07/suricata-ids-on-ubuntu-server/#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://haginara.github.io/posts/2016/07/using-the-lets-encrypt-for-nginx/" rel="bookmark"
-                           title="Permalink to Using the let's encrypt for Nginx">Using the let's encrypt for Nginx</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-07-01T00:00:00-07:00">
-                Published: Fri 01 July 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="http://haginara.github.io/author/haginara.html">haginara</a>
-        </address>
-<p>In <a href="http://haginara.github.io/category/07.html">07</a>.</p>
-<p>tags: <a href="http://haginara.github.io/tag/letsencrypt.html">letsencrypt</a> <a href="http://haginara.github.io/tag/nginx.html">nginx</a> </p>
-</footer><!-- /.post-info -->                <p>Verifying your HTTPS service using Let's Encrypt for Nginx</p>
-                <a class="readmore" href="http://haginara.github.io/posts/2016/07/using-the-lets-encrypt-for-nginx/">read more</a>
-<p>There are <a href="http://haginara.github.io/posts/2016/07/using-the-lets-encrypt-for-nginx/#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">

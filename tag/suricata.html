@@ -16,6 +16,7 @@
                 <h1><a href="http://haginara.github.io/">LightSaber </a></h1>
                 <nav><ul>
                     <li><a href="http://haginara.github.io/category/07.html">07</a></li>
+                    <li><a href="http://haginara.github.io/category/08.html">08</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -43,24 +44,24 @@
 <ul>
 <li>Stable</li>
 </ul>
-<div class="highlight"><pre>sudo add-apt-repository ppa:oisf/suricata-stable
-sudo apt-get update &amp;&amp; sudo apt-get install suricata
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">oisf</span><span class="o">/</span><span class="n">suricata</span><span class="o">-</span><span class="n">stable</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">suricata</span>
 </pre></div>
 
 
 <ul>
 <li>Beta</li>
 </ul>
-<div class="highlight"><pre>sudo add-apt-repository ppa:oisf/suricata-beta
-sudo apt-get update &amp;&amp; sudo apt-get install suricata
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">oisf</span><span class="o">/</span><span class="n">suricata</span><span class="o">-</span><span class="n">beta</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">suricata</span>
 </pre></div>
 
 
 <ul>
 <li>Daily Release</li>
 </ul>
-<div class="highlight"><pre>sudo add-apt-repository ppa:oisf/suricata-daily
-sudo apt-get update &amp;&amp; sudo apt-get install suricata
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">oisf</span><span class="o">/</span><span class="n">suricata</span><span class="o">-</span><span class="n">daily</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">suricata</span>
 </pre></div>
 
 
@@ -68,12 +69,12 @@ sudo apt-get update &amp;&amp; sudo apt-get install suricata
 <p>Network interface file</p>
 <p><code>sudo vim /etc/network/interfaces</code></p>
 <p>아래 내용을 추가한다.</p>
-<div class="highlight"><pre><span class="x">auto eth1</span>
-<span class="x">iface eth1 inet manual</span>
-<span class="x">up ifconfig </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> 0.0.0.0 up</span>
-<span class="x">up ip link set </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> promisc on</span>
-<span class="x">down ip link set </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> promisc off</span>
-<span class="x">down ifconfig </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> down</span>
+<div class="highlight"><pre><span class="k">auto</span> <span class="n">eth1</span>
+<span class="n">iface</span> <span class="n">eth1</span> <span class="n">inet</span> <span class="n">manual</span>
+<span class="n">up</span> <span class="n">ifconfig</span> <span class="err">$</span><span class="n">IFACE</span> <span class="mf">0.0.0.0</span> <span class="n">up</span>
+<span class="n">up</span> <span class="n">ip</span> <span class="n">link</span> <span class="n">set</span> <span class="err">$</span><span class="n">IFACE</span> <span class="n">promisc</span> <span class="n">on</span>
+<span class="n">down</span> <span class="n">ip</span> <span class="n">link</span> <span class="n">set</span> <span class="err">$</span><span class="n">IFACE</span> <span class="n">promisc</span> <span class="n">off</span>
+<span class="n">down</span> <span class="n">ifconfig</span> <span class="err">$</span><span class="n">IFACE</span> <span class="n">down</span>
 </pre></div>
 
 
@@ -103,24 +104,24 @@ sudo apt-get update &amp;&amp; sudo apt-get install suricata
 <li>post-hook: 룰이 변경됬을 경우 실행할 명렁</li>
 </ul>
 <p>해당 명령은 <strong>cronjob</strong>에 추가 할수 있다.</p>
-<div class="highlight"><pre>sudo vim /etc/cron.hourly/rulecat.hourly
-### Adding the command to rulecat.houly file
-#!/bin/bash
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">cron</span><span class="p">.</span><span class="n">hourly</span><span class="o">/</span><span class="n">rulecat</span><span class="p">.</span><span class="n">hourly</span>
+<span class="cp">### Adding the command to rulecat.houly file</span>
+<span class="cp">#!/bin/bash</span>
 
-/usr/local/bin/idstools-rulecat  --rules-dir /etc/suricata/rules/ --sid-msg-map /etc/suricata/rules/sid-msg.map --disable disable.conf --post-hook &quot;/etc/init.d/suricata restart&quot;
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">idstools</span><span class="o">-</span><span class="n">rulecat</span>  <span class="o">--</span><span class="n">rules</span><span class="o">-</span><span class="n">dir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">suricata</span><span class="o">/</span><span class="n">rules</span><span class="o">/</span> <span class="o">--</span><span class="n">sid</span><span class="o">-</span><span class="n">msg</span><span class="o">-</span><span class="n">map</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">suricata</span><span class="o">/</span><span class="n">rules</span><span class="o">/</span><span class="n">sid</span><span class="o">-</span><span class="n">msg</span><span class="p">.</span><span class="n">map</span> <span class="o">--</span><span class="n">disable</span> <span class="n">disable</span><span class="p">.</span><span class="n">conf</span> <span class="o">--</span><span class="n">post</span><span class="o">-</span><span class="n">hook</span> <span class="s">&quot;/etc/init.d/suricata restart&quot;</span>
 
-### Adding the execution permission to this file
-sudo chmod 755 /etc/cron.hourly/rulecat.hourly
+<span class="cp">### Adding the execution permission to this file</span>
+<span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">755</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">cron</span><span class="p">.</span><span class="n">hourly</span><span class="o">/</span><span class="n">rulecat</span><span class="p">.</span><span class="n">hourly</span>
 </pre></div>
 
 
 <p>Result</p>
-<div class="highlight"><pre>Last download less than <span class="m">15</span> minutes ago. Not fetching.
-Loaded <span class="m">21320</span> rules.
-Disabled <span class="m">48</span> rules.
-Enabled <span class="m">0</span> rules.
-Modified <span class="m">0</span> rules.
-Enabled <span class="m">86</span> rules <span class="k">for</span> flowbit dependencies.
+<div class="highlight"><pre>Last download less than 15 minutes ago. Not fetching.
+Loaded 21320 rules.
+Disabled 48 rules.
+Enabled 0 rules.
+Modified 0 rules.
+Enabled 86 rules <span class="k">for </span>flowbit dependencies.
 Writing rule files to /etc/suricata/rules/.
 Writing /etc/suricata/rules/sid-msg.map.
 Running post-hook as output has been modified.
