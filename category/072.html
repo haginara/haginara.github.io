@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>How to make a Simple .deb file</title>
+        <title>LightSaber - 07</title>
         <link rel="stylesheet" href="http://haginara.github.io/theme/css/main.css" />
         <link href="http://haginara.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="LightSaber Atom Feed" />
 
@@ -19,99 +19,36 @@
                     <li><a href="http://haginara.github.io/category/08.html">08</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="http://haginara.github.io/posts/2016/07/how-to-make-a-simple-deb-file/" rel="bookmark"
-           title="Permalink to How to make a Simple .deb file">How to make a Simple .deb file</a></h1>
-    </header>
 
-    <div class="entry-content">
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="4">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://haginara.github.io/posts/2016/07/welcome/" rel="bookmark"
+                           title="Permalink to Welcome">Welcome</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-07-06T12:09:00-07:00">
-                Published: Wed 06 July 2016
+        <abbr class="published" title="2016-07-01T00:00:00-07:00">
+                Published: Fri 01 July 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://haginara.github.io/author/haginara.html">haginara</a>
         </address>
 <p>In <a href="http://haginara.github.io/category/07.html">07</a>.</p>
-<p>tags: <a href="http://haginara.github.io/tag/deb.html">deb</a> <a href="http://haginara.github.io/tag/ubuntu.html">ubuntu</a> </p>
-</footer><!-- /.post-info -->      <h4>References</h4>
-<ul>
-<li>http://packaging.ubuntu.com/html/packaging-new-software.html</li>
-<li>http://packaging.ubuntu.com/html/debian-dir-overview.html</li>
-<li>http://tldp.org/HOWTO/html_single/Debian-Binary-Package-Building-HOWTO/#AEN66</li>
-<li>https://raphaelhertzog.com/2010/12/17/do-not-build-a-debian-package-with-dpkg-b/</li>
-<li>https://raphaelhertzog.com/debian-packaging/</li>
-</ul>
-<p>Standard debian notation is all lowercase in the following format</p>
-<p><code>&lt;project&gt;_&lt;major_version&gt;.&lt;minor_version&gt;-&lt;package revision&gt;</code></p>
-<p>Example:</p>
-<p>helloworld_1.0-1</p>
-<h4>Step by Step</h4>
-<ol>
-<li>
-<p>create a directory to make my package in. the name should be same as the package name
-<code>mkdir helloword_1.0-1</code></p>
-</li>
-<li>
-<p>Pretend that the packaging directory is actually that root of the file system. Put the files of your program where they would be installed to on a system.</p>
-</li>
-</ol>
-<div class="highlight"><pre>mkdir helloworld_1.0-1/user
-mkdir helloworld_1.0-1/user/local
-mkdir helloworld_1.0-1/user/local/bin
-cp &quot;~/Projects/Hello World/helloworld&quot; helloworld_1.0-1/usr/local/bin
-</pre></div>
-
-
-<ol>
-<li>Create a special metadata file with which the package manager will install your program</li>
-</ol>
-<div class="highlight"><pre>mkdir helloword_1.0-1/DEBIAN
-touch helloword_1.0-1/DEBIAN/control
-Put something like this in that file
-Package: helloworld
-Version: 1.0-1
-Section: base
-Priority: optional
-Architecture: i386
-Depends: libsomethingorrather (&gt;= 1.2.13), anotherDependency (&gt;= 1.2.6)
-Maintainer: Your Name &lt;you@email.com&gt;
-Description: Hello World
- When you need some sunshine, just run this
- small program!
-
- (the space before each line in the description is important)
-</pre></div>
-
-
-<ol>
-<li>You just need to make the package</li>
-</ol>
-<div class="highlight"><pre>dpkg-deb --build helloworld_1.0-1
-</pre></div>
-    </div><!-- /.entry-content -->
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_shortname = 'haginara-github';
-        var disqus_identifier = 'posts/2016/07/how-to-make-a-simple-deb-file/';
-        var disqus_url = 'http://haginara.github.io/posts/2016/07/how-to-make-a-simple-deb-file/';
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//haginara-github.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the comments.</noscript>
-    </div>
-
-  </article>
-</section>
+<p>tags: <a href="http://haginara.github.io/tag/pelican.html">Pelican</a> <a href="http://haginara.github.io/tag/publishing.html">publishing</a> </p>
+</footer><!-- /.post-info -->                <p>Welcome Page</p>
+                <a class="readmore" href="http://haginara.github.io/posts/2016/07/welcome/">read more</a>
+<p>There are <a href="http://haginara.github.io/posts/2016/07/welcome/#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="http://haginara.github.io/category/07.html">&laquo;</a>
+    Page 2 / 2
+</p>
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>

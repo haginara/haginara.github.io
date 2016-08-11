@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Removing the BOM characters using python</title>
+        <title>LightSaber - utf8</title>
         <link rel="stylesheet" href="http://haginara.github.io/theme/css/main.css" />
         <link href="http://haginara.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="LightSaber Atom Feed" />
 
@@ -15,19 +15,14 @@
         <header id="banner" class="body">
                 <h1><a href="http://haginara.github.io/">LightSaber </a></h1>
                 <nav><ul>
-                    <li class="active"><a href="http://haginara.github.io/category/07.html">07</a></li>
+                    <li><a href="http://haginara.github.io/category/07.html">07</a></li>
                     <li><a href="http://haginara.github.io/category/08.html">08</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/" rel="bookmark"
-           title="Permalink to Removing the BOM characters using python">Removing the BOM characters using python</a></h1>
-    </header>
 
-    <div class="entry-content">
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/">Removing the BOM characters using python</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2016-07-21T16:03:00-07:00">
                 Published: Thu 21 July 2016
@@ -38,7 +33,7 @@
         </address>
 <p>In <a href="http://haginara.github.io/category/07.html">07</a>.</p>
 <p>tags: <a href="http://haginara.github.io/tag/python.html">python</a> <a href="http://haginara.github.io/tag/utf8.html">utf8</a> </p>
-</footer><!-- /.post-info -->      <p>I exported the one of the csv file I wan to get some information using csvkit.
+</footer><!-- /.post-info --><p>I exported the one of the csv file I wan to get some information using csvkit.
 but csvkit return the error like below:</p>
 <div class="highlight"><pre>&#39;cp949&#39; codec can&#39;t encode character u&#39;\ufeff&#39; in position 5: illegal multibyte sequence
 </pre></div>
@@ -58,26 +53,8 @@ but csvkit return the error like below:</p>
     <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">.new&quot;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</pre></div>
-    </div><!-- /.entry-content -->
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_shortname = 'haginara-github';
-        var disqus_identifier = 'posts/2016/07/removing-the-bom-characters-using-python/';
-        var disqus_url = 'http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/';
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//haginara-github.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the comments.</noscript>
-    </div>
-
-  </article>
-</section>
+</pre></div><p>There are <a href="http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>

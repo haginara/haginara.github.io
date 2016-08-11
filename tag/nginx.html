@@ -43,34 +43,34 @@
 <h2>Client 다운로드</h2>
 <p>인증서를 얻기 위하여 별도의 letsencyrpt 클라이언트 프로그램을 다운 받아야 한다. 
 해당 클라이언트는 웹서비스를 하고 있는 대상 서버에 다운을 받는다.</p>
-<div class="highlight"><pre><span class="n">cd</span> <span class="o">/</span><span class="n">opt</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/letsencrypt/letsencrypt</span>
-<span class="n">cd</span> <span class="n">letsencrypt</span>
+<div class="highlight"><pre>cd /opt
+git clone https://github.com/letsencrypt/letsencrypt
+cd letsencrypt
 </pre></div>
 
 
 <h2>사용하고 있는 웹서비스 종료 후 인증서 받기</h2>
 <p>인증서를 받기 위하여 자체적으로 혹은 기존 사용하고 있는 웹서비스를 이용하여 인증서를 받는다.
 여기서는 기존 서비스를 이용하지않고 클라이언트에서 자체 지원하는 standalone 방식으로 인증서를 받을 예정이다.</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">service</span> <span class="n">nginx</span> <span class="n">stop</span>
+<div class="highlight"><pre>sudo service nginx stop
 </pre></div>
 
 
 <h2>letsencrypt-auto 이용하여 인증서 얻기</h2>
-<div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">-</span><span class="k">auto</span> <span class="n">certonly</span> <span class="o">--</span><span class="n">standalone</span> <span class="o">-</span><span class="n">d</span> <span class="n">www</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span> <span class="o">-</span><span class="n">d</span> <span class="n">cloud</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span> <span class="o">-</span><span class="n">d</span> <span class="n">blog</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span> <span class="o">-</span><span class="n">d</span> <span class="n">wiki</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span> <span class="o">-</span><span class="n">d</span> <span class="n">kanban</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span> <span class="o">-</span><span class="n">d</span> <span class="n">git</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span> 
+<div class="highlight"><pre>./letsencrypt-auto certonly --standalone -d www.haginara.net -d cloud.haginara.net -d blog.haginara.net -d wiki.haginara.net -d kanban.haginara.net -d git.haginara.net 
 </pre></div>
 
 
 <p>인증서를 받은 후에는 아래와 같은 축하 메시지를 받게 된다.</p>
-<div class="highlight"><pre><span class="n">IMPORTANT</span> <span class="n">NOTES</span><span class="o">:</span>
- <span class="o">-</span> <span class="n">Congratulations</span><span class="o">!</span> <span class="n">Your</span> <span class="n">certificate</span> <span class="n">and</span> <span class="n">chain</span> <span class="n">have</span> <span class="n">been</span> <span class="n">saved</span> <span class="n">at</span>
-   <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">/</span><span class="n">live</span><span class="o">/</span><span class="n">www</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span><span class="o">/</span><span class="n">fullchain</span><span class="p">.</span><span class="n">pem</span><span class="p">.</span> <span class="n">Your</span> <span class="n">cert</span>
-   <span class="n">will</span> <span class="n">expire</span> <span class="n">on</span> <span class="mi">2016</span><span class="o">-</span><span class="mo">03</span><span class="o">-</span><span class="mf">02.</span> <span class="n">To</span> <span class="n">obtain</span> <span class="n">a</span> <span class="n">new</span> <span class="n">version</span> <span class="n">of</span> <span class="n">the</span>
-   <span class="n">certificate</span> <span class="n">in</span> <span class="n">the</span> <span class="n">future</span><span class="p">,</span> <span class="n">simply</span> <span class="n">run</span> <span class="n">Let</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">Encrypt</span> <span class="n">again</span><span class="p">.</span>
- <span class="o">-</span> <span class="n">If</span> <span class="n">like</span> <span class="n">Let</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">Encrypt</span><span class="p">,</span> <span class="n">please</span> <span class="n">consider</span> <span class="n">supporting</span> <span class="n">our</span> <span class="n">work</span> <span class="n">by</span><span class="o">:</span>
+<div class="highlight"><pre>IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at
+   /etc/letsencrypt/live/www.haginara.net/fullchain.pem. Your cert
+   will expire on 2016-03-02. To obtain a new version of the
+   certificate in the future, simply run Let&#39;s Encrypt again.
+ - If like Let&#39;s Encrypt, please consider supporting our work by:
 
-   <span class="n">Donating</span> <span class="n">to</span> <span class="n">ISRG</span> <span class="o">/</span> <span class="n">Let</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">Encrypt</span><span class="o">:</span>   <span class="n">https</span><span class="o">:</span><span class="c1">//letsencrypt.org/donate</span>
-   <span class="n">Donating</span> <span class="n">to</span> <span class="n">EFF</span><span class="o">:</span>                    <span class="n">https</span><span class="o">:</span><span class="c1">//eff.org/donate-le</span>
+   Donating to ISRG / Let&#39;s Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
 </pre></div>
 
 
@@ -78,24 +78,24 @@
 <h2>설정 파일 사용하여 인증서 얻기</h2>
 <p>위와 같이 파라미터를 이용하여 인증서를 받을수도 있지만 별도의 설장파일을 만들어 두고 사용 하여도된다.</p>
 <p>cli.ini</p>
-<div class="highlight"><pre><span class="n">rsa</span><span class="o">-</span><span class="n">key</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="mi">4096</span>
-<span class="n">domains</span> <span class="o">=</span> <span class="n">www</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span><span class="p">,</span> <span class="n">blog</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span><span class="p">,</span> <span class="n">wiki</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span><span class="p">,</span> <span class="n">git</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span><span class="p">,</span> <span class="n">git</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span><span class="p">,</span> <span class="n">cloud</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span>
-<span class="n">authenticator</span> <span class="o">=</span> <span class="n">standalone</span>
+<div class="highlight"><pre>rsa-key-size = 4096
+domains = www.haginara.net, blog.haginara.net, wiki.haginara.net, git.haginara.net, git.haginara.net, cloud.haginara.net
+authenticator = standalone
 </pre></div>
 
 
-<div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">-</span><span class="k">auto</span> <span class="n">certonly</span> <span class="o">--</span><span class="n">config</span> <span class="n">cli</span><span class="p">.</span><span class="n">ini</span>
+<div class="highlight"><pre>./letsencrypt-auto certonly --config cli.ini
 </pre></div>
 
 
 <h2>Nginx 서비스에 인증서 적용</h2>
-<div class="highlight"><pre><span class="n">ssl_certificate</span>     <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">/</span><span class="n">live</span><span class="o">/</span><span class="n">www</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span><span class="o">/</span><span class="n">fullchain</span><span class="p">.</span><span class="n">pem</span>
-<span class="n">ssl_certificate_ke</span>  <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">/</span><span class="n">live</span><span class="o">/</span><span class="n">www</span><span class="p">.</span><span class="n">haginara</span><span class="p">.</span><span class="n">net</span><span class="o">/</span><span class="n">privkey</span><span class="p">.</span><span class="n">pem</span>
+<div class="highlight"><pre>ssl_certificate     /etc/letsencrypt/live/www.haginara.net/fullchain.pem
+ssl_certificate_ke  /etc/letsencrypt/live/www.haginara.net/privkey.pem
 </pre></div>
 
 
 <h2>기존 웹서비스 실행</h2>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">service</span> <span class="n">nginx</span> <span class="n">start</span>
+<div class="highlight"><pre>sudo service nginx start
 </pre></div>
 
 
@@ -121,10 +121,10 @@
 
 service nginx stop
 sleep 2
-<span class="k">if</span> <span class="o">[</span> -f <span class="nv">$NGINX_PID</span> <span class="o">]</span>; <span class="k">then</span>
-<span class="k">    </span>service nginx restart
+<span class="k">if</span> <span class="o">[</span> -f <span class="nv">$NGINX_PID</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    service nginx restart
 <span class="k">else</span>
-<span class="k">    </span><span class="nb">cd</span> /opt/letsencrypt
+    <span class="nb">cd</span> /opt/letsencrypt
     ./letsencrypt-auto certonly --config <span class="nv">$INI_PATH</span>
     service nginx start
 <span class="k">fi</span>
@@ -136,12 +136,12 @@ sleep 2
 <p>Let's Encrypt 인증서의 경우 만료기간이 90일이다. 따라서 매 90일 마다 인증서 갱신을 해주어야 한다.</p>
 <p>인증서 갱신은 기존 인증서를 새로 발급 받는 절차와 동일하다 단지 이 작업을 90일마다(인증서 만료전) 실행 해 주기위하여 Cronjob으로 설정할 에정이다.</p>
 <h2>Cron-job</h2>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">crontab</span> <span class="o">-</span><span class="n">e</span>
+<div class="highlight"><pre>sudo crontab -e
 </pre></div>
 
 
 <p>아래와 같이 크론잡을 설정 해준다.</p>
-<div class="highlight"><pre><span class="mi">30</span> <span class="mo">03</span> <span class="mo">01</span> <span class="err">*/</span><span class="mi">3</span> <span class="o">*</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">-</span><span class="n">cron</span>
+<div class="highlight"><pre>30 03 01 */3 * /opt/letsencrypt/letsencrypt-cron
 </pre></div><p>There are <a href="http://haginara.github.io/posts/2016/07/using-the-lets-encrypt-for-nginx/#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">

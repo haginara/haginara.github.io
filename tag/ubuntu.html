@@ -55,38 +55,38 @@
 <p>Pretend that the packaging directory is actually that root of the file system. Put the files of your program where they would be installed to on a system.</p>
 </li>
 </ol>
-<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">helloworld_1</span><span class="mf">.0</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">user</span>
-<span class="n">mkdir</span> <span class="n">helloworld_1</span><span class="mf">.0</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">local</span>
-<span class="n">mkdir</span> <span class="n">helloworld_1</span><span class="mf">.0</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span>
-<span class="n">cp</span> <span class="s">&quot;~/Projects/Hello World/helloworld&quot;</span> <span class="n">helloworld_1</span><span class="mf">.0</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span>
+<div class="highlight"><pre>mkdir helloworld_1.0-1/user
+mkdir helloworld_1.0-1/user/local
+mkdir helloworld_1.0-1/user/local/bin
+cp &quot;~/Projects/Hello World/helloworld&quot; helloworld_1.0-1/usr/local/bin
 </pre></div>
 
 
 <ol>
 <li>Create a special metadata file with which the package manager will install your program</li>
 </ol>
-<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">helloword_1</span><span class="mf">.0</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">DEBIAN</span>
-<span class="n">touch</span> <span class="n">helloword_1</span><span class="mf">.0</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">DEBIAN</span><span class="o">/</span><span class="n">control</span>
-<span class="n">Put</span> <span class="n">something</span> <span class="n">like</span> <span class="n">this</span> <span class="n">in</span> <span class="n">that</span> <span class="n">file</span>
-<span class="nl">Package:</span> <span class="n">helloworld</span>
-<span class="nl">Version:</span> <span class="mf">1.0</span><span class="o">-</span><span class="mi">1</span>
-<span class="nl">Section:</span> <span class="n">base</span>
-<span class="nl">Priority:</span> <span class="n">optional</span>
-<span class="nl">Architecture:</span> <span class="n">i386</span>
-<span class="nl">Depends:</span> <span class="n">libsomethingorrather</span> <span class="p">(</span><span class="o">&gt;=</span> <span class="mf">1.2.13</span><span class="p">),</span> <span class="n">anotherDependency</span> <span class="p">(</span><span class="o">&gt;=</span> <span class="mf">1.2.6</span><span class="p">)</span>
-<span class="nl">Maintainer:</span> <span class="n">Your</span> <span class="n">Name</span> <span class="o">&lt;</span><span class="n">you</span><span class="err">@</span><span class="n">email</span><span class="p">.</span><span class="n">com</span><span class="o">&gt;</span>
-<span class="nl">Description:</span> <span class="n">Hello</span> <span class="n">World</span>
- <span class="n">When</span> <span class="n">you</span> <span class="n">need</span> <span class="n">some</span> <span class="n">sunshine</span><span class="p">,</span> <span class="n">just</span> <span class="n">run</span> <span class="n">this</span>
- <span class="n">small</span> <span class="n">program</span><span class="o">!</span>
+<div class="highlight"><pre>mkdir helloword_1.0-1/DEBIAN
+touch helloword_1.0-1/DEBIAN/control
+Put something like this in that file
+Package: helloworld
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: i386
+Depends: libsomethingorrather (&gt;= 1.2.13), anotherDependency (&gt;= 1.2.6)
+Maintainer: Your Name &lt;you@email.com&gt;
+Description: Hello World
+ When you need some sunshine, just run this
+ small program!
 
- <span class="p">(</span><span class="n">the</span> <span class="n">space</span> <span class="n">before</span> <span class="n">each</span> <span class="n">line</span> <span class="n">in</span> <span class="n">the</span> <span class="n">description</span> <span class="n">is</span> <span class="n">important</span><span class="p">)</span>
+ (the space before each line in the description is important)
 </pre></div>
 
 
 <ol>
 <li>You just need to make the package</li>
 </ol>
-<div class="highlight"><pre><span class="n">dpkg</span><span class="o">-</span><span class="n">deb</span> <span class="o">--</span><span class="n">build</span> <span class="n">helloworld_1</span><span class="mf">.0</span><span class="o">-</span><span class="mi">1</span>
+<div class="highlight"><pre>dpkg-deb --build helloworld_1.0-1
 </pre></div><p>There are <a href="http://haginara.github.io/posts/2016/07/how-to-make-a-simple-deb-file/#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
