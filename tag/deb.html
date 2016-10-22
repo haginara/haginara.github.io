@@ -55,7 +55,7 @@
 <p>Pretend that the packaging directory is actually that root of the file system. Put the files of your program where they would be installed to on a system.</p>
 </li>
 </ol>
-<div class="highlight"><pre>mkdir helloworld_1.0-1/user
+<div class="highlight"><pre><span></span>mkdir helloworld_1.0-1/user
 mkdir helloworld_1.0-1/user/local
 mkdir helloworld_1.0-1/user/local/bin
 cp &quot;~/Projects/Hello World/helloworld&quot; helloworld_1.0-1/usr/local/bin
@@ -65,7 +65,7 @@ cp &quot;~/Projects/Hello World/helloworld&quot; helloworld_1.0-1/usr/local/bin
 <ol>
 <li>Create a special metadata file with which the package manager will install your program</li>
 </ol>
-<div class="highlight"><pre>mkdir helloword_1.0-1/DEBIAN
+<div class="highlight"><pre><span></span>mkdir helloword_1.0-1/DEBIAN
 touch helloword_1.0-1/DEBIAN/control
 Put something like this in that file
 Package: helloworld
@@ -86,7 +86,7 @@ Description: Hello World
 <ol>
 <li>You just need to make the package</li>
 </ol>
-<div class="highlight"><pre>dpkg-deb --build helloworld_1.0-1
+<div class="highlight"><pre><span></span>dpkg-deb --build helloworld_1.0-1
 </pre></div><p>There are <a href="http://haginara.github.io/posts/2016/07/how-to-make-a-simple-deb-file/#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
