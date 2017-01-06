@@ -15,14 +15,50 @@
         <header id="banner" class="body">
                 <h1><a href="http://haginara.github.io/">LightSaber </a></h1>
                 <nav><ul>
-                    <li><a href="http://haginara.github.io/category/07.html">07</a></li>
-                    <li><a href="http://haginara.github.io/category/08.html">08</a></li>
+                    <li><a href="http://haginara.github.io/category/blog.html">blog</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://haginara.github.io/posts/2016/08/python-ldap-on-os-x/">Python-ldap on OS X</a></h1>
+                    <h1 class="entry-title"><a href="http://haginara.github.io/posts/2016/08/idatools/">idstools</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-08-14T00:00:00-07:00">
+                Published: Sun 14 August 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://haginara.github.io/author/haginara.html">haginara</a>
+        </address>
+<p>In <a href="http://haginara.github.io/category/blog.html">blog</a>.</p>
+<p>tags: <a href="http://haginara.github.io/tag/suricata.html">suricata</a> <a href="http://haginara.github.io/tag/idstools.html">idstools</a> <a href="http://haginara.github.io/tag/python.html">python</a> </p>
+</footer><!-- /.post-info --><h2>Using idstools</h2>
+<h3>Programs</h3>
+<ul>
+<li>rulecat - Basic Suricata rule management tool.</li>
+<li>eve2pcap - Convert packets and payloads in eve logs to pcap.</li>
+<li>u2json - Convert unified2 files or spool directories to JSON.</li>
+<li>gensidmsgmap - Easily create a sid-msg.map file from rule files, directories or a rule tarball.</li>
+<li>dumpdynamicrules - Helper for dumping Snort SO dynamic rule stubs.</li>
+<li>u2eve - Convert unified2 files to EVE compatible JSON.</li>
+</ul>
+<h3>Usage</h3>
+<h4>rulecat</h4>
+<div class="highlight"><pre><span></span>idstools-rulecat  --suricata /usr/bin/suricata --rules-dir /etc/suricata/rules/ --sid-msg-map /etc/suricata/rules/sid-msg.map --disable disable.conf --post-hook &quot;/etc/init.d/suricata restart&quot; &gt;&gt; /var/log/rulecat.log
+</pre></div><p>There are <a href="http://haginara.github.io/posts/2016/08/idatools/#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://haginara.github.io/posts/2016/08/python-ldap-on-os-x/" rel="bookmark"
+                           title="Permalink to Python-ldap on OS X">Python-ldap on OS X</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-08-04T00:00:00-07:00">
                 Published: Thu 04 August 2016
@@ -31,44 +67,12 @@
         <address class="vcard author">
                 By                         <a class="url fn" href="http://haginara.github.io/author/haginara.html">haginara</a>
         </address>
-<p>In <a href="http://haginara.github.io/category/08.html">08</a>.</p>
+<p>In <a href="http://haginara.github.io/category/blog.html">blog</a>.</p>
 <p>tags: <a href="http://haginara.github.io/tag/osx.html">osx</a> <a href="http://haginara.github.io/tag/ldap.html">ldap</a> <a href="http://haginara.github.io/tag/python.html">python</a> </p>
-</footer><!-- /.post-info --><p>python-ldap is supporting the Python2 and Python3. But I never tried to install on OS X.</p>
-<p>I got error message, when I try to install the python-ldap via pip</p>
-<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">ldap</span>
-<span class="p">...</span>
-<span class="n">Modules</span><span class="o">/</span><span class="n">LDAPObject</span><span class="p">.</span><span class="n">c</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span> <span class="n">fatal</span> <span class="k">error</span><span class="p">:</span> <span class="c">&#39;sasl.h&#39; file not found</span>
-<span class="p">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">sasl</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
-         <span class="o">^</span>
-<span class="mi">1</span> <span class="k">error</span> <span class="n">generated</span><span class="p">.</span>
-<span class="k">error</span><span class="p">:</span> <span class="n">command</span> <span class="c">&#39;cc&#39; failed with exit status 1</span>
-</pre></div>
-
-
-<p>The official python-ldap site(https://www.python-ldap.org/download.html) is having the guide to install on OS X</p>
-<div class="highlight"><pre>Set up a suitable development environment by running xcode-select --install. After that you can install directly from PyPI.
-</pre></div>
-
-
-<p>xcode-select  --install
-xcode-select: note: install requested for command line developer tools
-sudo pip install python-ldap
-Password:
-Collecting python-ldap
-  Downloading python-ldap-2.4.27.tar.gz (125kB)
-    100% |████████████████████████████████| 133kB 175kB/s
-Requirement already satisfied (use --upgrade to upgrade): setuptools in /Library/Python/2.7/site-packages (from python-ldap)
-Installing collected packages: python-ldap
-  Running setup.py install for python-ldap ... done
-Successfully installed python-ldap-2.4.27
-python -c "import ldap; print(ldap)"
-<module 'ldap' from '/Library/Python/2.7/site-packages/ldap/__init__.pyc'>
-```</p><p>There are <a href="http://haginara.github.io/posts/2016/08/python-ldap-on-os-x/#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Simple guide to install python-ldap on os x</p>
+                <a class="readmore" href="http://haginara.github.io/posts/2016/08/python-ldap-on-os-x/">read more</a>
+<p>There are <a href="http://haginara.github.io/posts/2016/08/python-ldap-on-os-x/#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -85,7 +89,7 @@ python -c "import ldap; print(ldap)"
         <address class="vcard author">
                 By                         <a class="url fn" href="http://haginara.github.io/author/haginara.html">haginara</a>
         </address>
-<p>In <a href="http://haginara.github.io/category/07.html">07</a>.</p>
+<p>In <a href="http://haginara.github.io/category/blog.html">blog</a>.</p>
 <p>tags: <a href="http://haginara.github.io/tag/python.html">python</a> <a href="http://haginara.github.io/tag/utf8.html">utf8</a> </p>
 </footer><!-- /.post-info -->                <p>Removing the BOM characters using python</p>
                 <a class="readmore" href="http://haginara.github.io/posts/2016/07/removing-the-bom-characters-using-python/">read more</a>
@@ -95,7 +99,7 @@ python -c "import ldap; print(ldap)"
                 </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
-                        <h2>blogroll</h2>
+                        <h2>links</h2>
                         <ul>
                             <li><a href="http://getpelican.com/">Pelican</a></li>
                             <li><a href="http://python.org/">Python.org</a></li>
@@ -121,14 +125,13 @@ python -c "import ldap; print(ldap)"
         </footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-72045108-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = 'https://ssl.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-72045108-1', 'auto');
+    ga('send', 'pageview');
     </script>
 <script type="text/javascript">
     var disqus_shortname = 'haginara-github';

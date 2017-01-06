@@ -15,8 +15,7 @@
         <header id="banner" class="body">
                 <h1><a href="http://haginara.github.io/">LightSaber </a></h1>
                 <nav><ul>
-                    <li><a href="http://haginara.github.io/category/07.html">07</a></li>
-                    <li class="active"><a href="http://haginara.github.io/category/08.html">08</a></li>
+                    <li class="active"><a href="http://haginara.github.io/category/blog.html">blog</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
@@ -36,11 +35,11 @@
         <address class="vcard author">
                 By                         <a class="url fn" href="http://haginara.github.io/author/haginara.html">haginara</a>
         </address>
-<p>In <a href="http://haginara.github.io/category/08.html">08</a>.</p>
+<p>In <a href="http://haginara.github.io/category/blog.html">blog</a>.</p>
 <p>tags: <a href="http://haginara.github.io/tag/osx.html">osx</a> <a href="http://haginara.github.io/tag/ldap.html">ldap</a> <a href="http://haginara.github.io/tag/python.html">python</a> </p>
 </footer><!-- /.post-info -->      <p>python-ldap is supporting the Python2 and Python3. But I never tried to install on OS X.</p>
 <p>I got error message, when I try to install the python-ldap via pip</p>
-<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">ldap</span>
+<div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">ldap</span>
 <span class="p">...</span>
 <span class="n">Modules</span><span class="o">/</span><span class="n">LDAPObject</span><span class="p">.</span><span class="n">c</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span> <span class="n">fatal</span> <span class="k">error</span><span class="p">:</span> <span class="c">&#39;sasl.h&#39; file not found</span>
 <span class="p">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">sasl</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
@@ -51,7 +50,7 @@
 
 
 <p>The official python-ldap site(https://www.python-ldap.org/download.html) is having the guide to install on OS X</p>
-<div class="highlight"><pre>Set up a suitable development environment by running xcode-select --install. After that you can install directly from PyPI.
+<div class="highlight"><pre><span></span>Set up a suitable development environment by running xcode-select --install. After that you can install directly from PyPI.
 </pre></div>
 
 
@@ -90,7 +89,7 @@ python -c "import ldap; print(ldap)"
 </section>
         <section id="extras" class="body">
                 <div class="blogroll">
-                        <h2>blogroll</h2>
+                        <h2>links</h2>
                         <ul>
                             <li><a href="http://getpelican.com/">Pelican</a></li>
                             <li><a href="http://python.org/">Python.org</a></li>
@@ -116,14 +115,13 @@ python -c "import ldap; print(ldap)"
         </footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-72045108-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = 'https://ssl.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-72045108-1', 'auto');
+    ga('send', 'pageview');
     </script>
 <script type="text/javascript">
     var disqus_shortname = 'haginara-github';
