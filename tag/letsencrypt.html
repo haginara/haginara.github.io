@@ -40,7 +40,7 @@
 </ul>
 <h1>인증서 얻기</h1>
 <h2>Client 다운로드</h2>
-<p>인증서를 얻기 위하여 별도의 letsencyrpt 클라이언트 프로그램을 다운 받아야 한다. 
+<p>인증서를 얻기 위하여 별도의 letsencyrpt 클라이언트 프로그램을 다운 받아야 한다.
 해당 클라이언트는 웹서비스를 하고 있는 대상 서버에 다운을 받는다.</p>
 <div class="highlight"><pre><span></span>cd /opt
 git clone https://github.com/letsencrypt/letsencrypt
@@ -56,7 +56,7 @@ cd letsencrypt
 
 
 <h2>letsencrypt-auto 이용하여 인증서 얻기</h2>
-<div class="highlight"><pre><span></span>./letsencrypt-auto certonly --standalone -d www.haginara.net -d cloud.haginara.net -d blog.haginara.net -d wiki.haginara.net -d kanban.haginara.net -d git.haginara.net 
+<div class="highlight"><pre><span></span>./letsencrypt-auto certonly --standalone -d www.haginara.net -d cloud.haginara.net -d blog.haginara.net -d wiki.haginara.net -d kanban.haginara.net -d git.haginara.net
 </pre></div>
 
 
@@ -119,7 +119,7 @@ ssl_certificate_ke  /etc/letsencrypt/live/www.haginara.net/privkey.pem
 <span class="nv">NGINX_PID</span><span class="o">=</span>/var/run/nginx.pid
 
 service nginx stop
-sleep 2
+sleep <span class="m">2</span>
 <span class="k">if</span> <span class="o">[</span> -f <span class="nv">$NGINX_PID</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
     service nginx restart
 <span class="k">else</span>

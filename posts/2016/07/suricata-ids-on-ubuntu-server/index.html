@@ -73,12 +73,12 @@ sudo apt-get update &amp;&amp; sudo apt-get install suricata
 <p>Network interface file</p>
 <p><code>sudo vim /etc/network/interfaces</code></p>
 <p>아래 내용을 추가한다.</p>
-<div class="highlight"><pre><span></span><span class="x">auto eth1</span>
-<span class="x">iface eth1 inet manual</span>
-<span class="x">up ifconfig </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> 0.0.0.0 up</span>
-<span class="x">up ip link set </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> promisc on</span>
-<span class="x">down ip link set </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> promisc off</span>
-<span class="x">down ifconfig </span><span class="p">$</span><span class="nv">IFACE</span><span class="x"> down</span>
+<div class="highlight"><pre><span></span>auto eth1
+iface eth1 inet manual
+up ifconfig $IFACE 0.0.0.0 up
+up ip link set $IFACE promisc on
+down ip link set $IFACE promisc off
+down ifconfig $IFACE down
 </pre></div>
 
 
